@@ -1,6 +1,17 @@
-# my_personal_project
+Animated UI design 
 
-A new Flutter project.
+
+Screenshot:
+![Screenshot_20241026_114756](https://github.com/user-attachments/assets/4abed5fc-a081-4e7e-9ab5-15bdf183b059)
+
+![Screenshot_20241026_114750](https://github.com/user-attachments/assets/2a97a512-1eb8-4e4c-8725-315c18cde140)
+
+Video:
+
+
+https://github.com/user-attachments/assets/f8da10af-58ae-46e4-b792-67e0c0a44ccb
+
+
 
 ## Getting Started
 
