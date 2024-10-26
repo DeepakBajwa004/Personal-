@@ -1,12 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_personal_project/presentation/view/screens/entry_point/entry_point.dart';
-import 'package:my_personal_project/presentation/view/screens/onBoarding_screen/onboarding_screen.dart';
 import 'package:my_personal_project/presentation/view/splash_screen/splash__screen.dart';
 import 'data/controller/auth_controlller/user_controller/user_controller.dart';
-import 'data/repositories/user_repo/user_repositories.dart';
 import 'firebase_options.dart';
 
 void main() async {

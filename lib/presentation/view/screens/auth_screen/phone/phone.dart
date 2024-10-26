@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_personal_project/data/controller/auth_controlller/phone_controller/phone_controller.dart';
 import 'package:rive/rive.dart';
-import '../../../../../data/controller/auth_controlller/sign_up_controller/sign_up_conntroller.dart';
 import '../../../../../utils/custom_positioned/custom_positioned.dart';
 import '../../../../../utils/custom_text_field/form_text_field.dart';
 import '../../../../../utils/custtom_button/custom_button.dart';

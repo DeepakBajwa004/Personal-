@@ -7,7 +7,6 @@ import 'package:my_personal_project/presentation/view/side_menu_screens/history_
 import 'package:my_personal_project/presentation/view/side_menu_screens/notification_screen/notification_screen.dart';
 import 'package:rive/rive.dart';
 import '../../../data/controller/auth_controlller/user_controller/user_controller.dart';
-import '../../../data/repositories/user_repo/user_repositories.dart';
 import '../../view/side_menu_screens/settings_screen/settings_screen.dart';
 import '../../view/side_menu_screens/user_profile/profile_screen.dart';
 import 'info_card.dart';
@@ -37,11 +36,13 @@ class _SideMenuState extends State<SideMenu> {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.only(top: 30, bottom: 30),
       child: Container(
         width: 295,
-        height: double.infinity,
+        height: screenHeight, // Adjust size based on height
         color: const Color(0xFF17203A),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,11 +52,24 @@ class _SideMenuState extends State<SideMenu> {
               email: widget.userEmail,
               photoUrl: widget.userPhotoUrl,
             ),
-            _buildSectionTitle(context, 'Browse'),
-            ..._buildMenuTiles(sideMenus),
-            _buildSectionTitle(context, 'History'),
-            ..._buildMenuTiles(sideMenus2),
-            const Spacer(),
+            // Scrollable content section
+            Flexible(
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _buildSectionTitle(context, 'Browse'),
+                    ..._buildMenuTiles(sideMenus),
+                    const SizedBox(height: 16),
+
+                    _buildSectionTitle(context, 'History'),
+                    ..._buildMenuTiles(sideMenus2),
+                    const SizedBox(height: 16),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 10,),
             ..._buildMenuTiles(sideMenus3),
           ],
         ),
@@ -79,13 +93,14 @@ class _SideMenuState extends State<SideMenu> {
     return menus.map((menu) {
       return SideMenuTile(
         menu: menu,
-        press: () {
+        press: () async {
           _activateMenu(menu);
 
           // Navigate based on the menu title
           switch (menu.title.trim()) {
 
             case 'Profile':
+              await Future.delayed(const Duration(milliseconds: 300));
               Get.to(()=>  ProfileScreen(
                 userEmail: widget.userEmail,
                 userName: widget.userName,
@@ -94,30 +109,37 @@ class _SideMenuState extends State<SideMenu> {
               break;
 
             case 'Settings':
+              await Future.delayed(const Duration(milliseconds: 300));
               Get.to(()=> const SettingsScreen());
               break;
 
             case 'Favorites':
+              await Future.delayed(const Duration(milliseconds: 300));
               Get.to(()=> const FavoritesScreen());
               break;
 
             case 'About Us':
+              await Future.delayed(const Duration(milliseconds: 300));
               Get.to(()=> const AboutUsScreen());
               break;
 
             case 'Help':
+              await Future.delayed(const Duration(milliseconds: 300));
               Get.to(()=> const HelpScreen());
               break;
 
-            case 'History':
+            case 'Transaction History':
+              await Future.delayed(const Duration(milliseconds: 300));
               Get.to(()=> const HistoryScreen());
               break;
 
             case 'Notification':
+              await Future.delayed(const Duration(milliseconds: 300));
               Get.to(()=> const NotificationScreen());
               break;
 
             case 'Logout':
+              await Future.delayed(const Duration(milliseconds: 300));
               _userController.showLogoutDialog(context);
               break;
 

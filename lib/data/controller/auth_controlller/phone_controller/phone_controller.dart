@@ -1,11 +1,7 @@
-import 'package:awesome_dialog/awesome_dialog.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rive/rive.dart';
 
-import '../../../../presentation/view/screens/entry_point/entry_point.dart';
-import '../../../../utils/custom_dialog/custom_dialog.dart';
 import '../../../../utils/rive_utils.dart';
 
 class PhoneController extends GetxController {

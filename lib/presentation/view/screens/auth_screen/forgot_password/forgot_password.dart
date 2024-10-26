@@ -2,13 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../../data/controller/auth_controlller/forgot_password_controller/forgot_password_controller.dart';
-import '../../../../../utils/custom_text_field/form_text_field.dart';
 import '../../../../../utils/validator/FormValidators.dart';
 
 class ForgotPasswordDialog extends StatelessWidget {
   final ForgotPasswordController forgotPasswordController =
   Get.put(ForgotPasswordController());
   final TextEditingController emailController = TextEditingController();
+
+  ForgotPasswordDialog({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -29,7 +29,7 @@ List<RiveAssets>  sideMenus = [
 ];
 
 List<RiveAssets>  sideMenus2 = [
-  RiveAssets('assets/RiveAssets/icons.riv', artboard: 'TIMER', stateMachine: 'TIMER_Interactivity', title: 'History'),
+  RiveAssets('assets/RiveAssets/icons.riv', artboard: 'TIMER', stateMachine: 'TIMER_Interactivity', title: 'Transaction History'),
   RiveAssets('assets/RiveAssets/icons.riv', artboard: 'BELL', stateMachine: 'BELL_Interactivity', title: 'Notification'),
 ];
 

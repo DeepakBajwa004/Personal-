@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
-import 'package:my_personal_project/utils/loading/loading.dart';
 
 import '../../../data/controller/splash_controller/splash_controller.dart';
 

@@ -32,7 +32,7 @@ class VerifyEmailScreen extends StatelessWidget {
               onPressed: (){
                 Get.offAll(()=> const OnBoardingScreen());
               },
-              icon: const Icon(CupertinoIcons.back),
+              icon: const Icon(CupertinoIcons.clear_thick),
             ),
           ],
         ),

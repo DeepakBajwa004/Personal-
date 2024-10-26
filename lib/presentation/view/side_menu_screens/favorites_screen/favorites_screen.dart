@@ -8,6 +8,8 @@ class FavoritesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
@@ -29,13 +31,12 @@ class FavoritesScreen extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 children: [
-                  const Spacer(),
                   Lottie.asset('assets/lottie/empty.json',
-                    width: MediaQuery.of(context).size.width*1,
-                    height: MediaQuery.of(context).size.width*1,
+                    width: screenWidth * 0.8,
+                    height: screenHeight * 0.4, // Adjust size based on height
                     fit: BoxFit.contain,
                   ),
-                  const Spacer(),
+                  const SizedBox(height: 24), // Add spacing between sections
                   const Text(
                     'Nothing to see here',
                     style: TextStyle(
@@ -44,7 +45,6 @@ class FavoritesScreen extends StatelessWidget {
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  const Spacer(flex: 2,),
                 ],
               ),
             ),

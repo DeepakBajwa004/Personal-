@@ -56,7 +56,7 @@ class VerifyEmailController extends GetxController {
         await storeUserData(user!);   // Store user data
         _verificationTimer?.cancel(); // Stop deletion timer
         _setVerificationInProgress(false); // Clear the verification flag
-        print("user emmaillllkjhugvdjsnksadshbfsjakmljidfhbskfhbdsdhfbd ${user!.email}");
+        print("user emmaillllkjhugvdjsnksadshbfsjakmljidfhbskfhbdsdhfbd ${user.email}");
         print("user emmaillllkjhugvdjsnksadshbfsjakmljidfhbskfhbdsdhfbd ${user.displayName}");
         navigateToEntryPoint();
       }

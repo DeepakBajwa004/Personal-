@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:my_personal_project/presentation/view/screens/onBoarding_screen/onboarding_screen.dart';
 import '../../../../utils/custom_dialog/custom_dialog.dart';
 import '../../../../utils/exceptions/firebase_auth_exceptions.dart';

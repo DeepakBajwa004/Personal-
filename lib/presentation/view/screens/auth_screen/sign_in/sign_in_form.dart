@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_personal_project/presentation/view/screens/auth_screen/sign_in/widgets/RememberMeAndForgotPassword.dart';
 import 'package:rive/rive.dart';
 import '../../../../../data/controller/auth_controlller/sign_in_controller/sign_in_controller.dart';
 import '../../../../../utils/custom_positioned/custom_positioned.dart';
@@ -15,11 +14,11 @@ class SignInForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SignInController _authController = Get.put(SignInController());
+    final SignInController authController = Get.put(SignInController());
     return Stack(
       children: [
         Form(
-          key: _authController.formKey,
+          key: authController.formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -27,7 +26,7 @@ class SignInForm extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: CustomTextField(
-                  controller: _authController.emailController,
+                  controller: authController.emailController,
                   hintText: 'Enter your email',
                   prefixIcon: Icons.email,
                   showSuffixIcon: false,
@@ -38,7 +37,7 @@ class SignInForm extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: CustomTextField(
-                  controller: _authController.passwordController,
+                  controller: authController.passwordController,
                   hintText: 'Enter your password',
                   prefixIcon: Icons.lock,
                   showSuffixIcon: true,
@@ -46,23 +45,38 @@ class SignInForm extends StatelessWidget {
                   validator: (value) => FormValidators.validatePassword(value, minLength: 6),
                 ),
               ),
-              RememberMeAndForgotPassword(
-                isChecked: _authController.isChecked.value,
-                onRememberMeChanged: (value) => _authController.isChecked.value = value ?? false,
-                onForgotPasswordPressed: () {
+
+              TextButton(
+                onPressed: (){
                   showDialog(
                       context: context,
                       builder: (context){
                         return ForgotPasswordDialog();
                       }
                   );
-                }
+                },
+                child:  const Text(
+                  'Forgot Password?',
+                  style: TextStyle(color: Color(0xFFF77D8E)),
+                ),
               ),
+              // RememberMeAndForgotPassword(
+              //   isChecked: _authController.isChecked.value,
+              //   onRememberMeChanged: (value) => _authController.isChecked.value = value ?? false,
+              //   onForgotPasswordPressed: () {
+              //     showDialog(
+              //         context: context,
+              //         builder: (context){
+              //           return ForgotPasswordDialog();
+              //         }
+              //     );
+              //   }
+              // ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16.0),
                 child: CustomElevatedButton(
                   onPressed: () {
-                    _authController.signIn();
+                    authController.signIn();
                   },
                   icon: CupertinoIcons.arrow_right,
                   label: 'Sign In',
@@ -73,12 +87,12 @@ class SignInForm extends StatelessWidget {
         ),
         // Loading animation
         Obx(() {
-          if (_authController.isShowLoading.value) {
+          if (authController.isShowLoading.value) {
             return CustomPositioned(
               child: RiveAnimation.asset(
                 'assets/RiveAssets/check.riv', // Your loading Rive asset path
                 onInit: (artboard) {
-                  _authController.getRiveController(artboard);
+                  authController.getRiveController(artboard);
                   // Optionally initialize any triggers if needed
                 },
               ),
@@ -89,14 +103,14 @@ class SignInForm extends StatelessWidget {
 
         // Confetti animation
         Obx(() {
-          if (_authController.isShowConfetti.value) {
+          if (authController.isShowConfetti.value) {
             return CustomPositioned(
               child: Transform.scale(
                 scale: 7,
                 child: RiveAnimation.asset(
                   'assets/RiveAssets/confetti.riv',
                   onInit: (artboard) {
-                     _authController.getRiveControllerr(artboard);
+                     authController.getRiveControllerr(artboard);
                   },
                 ),
               ),
